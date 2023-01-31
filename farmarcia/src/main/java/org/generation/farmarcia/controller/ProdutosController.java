@@ -56,7 +56,7 @@ public class ProdutosController {
 		return ResponseEntity.status(HttpStatus.CREATED)
 				.body(repository.save(produtos));
 	}
-	@PutMapping
+	@PutMapping	
 	public ResponseEntity<Produtos>put(@Valid @RequestBody Produtos produtos){
 		return repository.findById(produtos.getId())
 				.map(resposta -> ResponseEntity.status(HttpStatus.OK)

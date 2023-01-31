@@ -10,6 +10,8 @@ import javax.persistence.Id;
 import javax.persistence.ManyToOne;
 import javax.persistence.Table;
 import javax.validation.constraints.NotBlank;
+import javax.validation.constraints.NotNull;
+//import javax.validation.constraints.NotBlank;
 import javax.validation.constraints.Size;
 
 import org.springframework.format.annotation.DateTimeFormat;
@@ -26,15 +28,13 @@ public class Produtos {
 	@NotBlank(message = "O atributo nome é obrigatorio!")
 	@Size(min = 5, max = 50, message = "O atributo nome deve conter no minimo 05 caracteres")
 	public String nome;
-	@NotBlank(message = "O atributo valor é obrigatorio!")
-	@Size(min = 5, max = 10, message = "O atributo valor deve conter no minimo 05 caracteres")
+	@NotNull
 	public BigDecimal valor;
-	@NotBlank(message = "O atributo data de validade é obrigatorio!")
-	@Size(min = 6, max = 100, message = "O atributo data de validade deve conter no minimo 06 caracteres")
+	@NotNull
 	@DateTimeFormat(pattern = "dd-MM-yyyy")
 	public LocalDate dataValidade;
-	//@NotBlank(message = "O atributo generico é obrigatorio!")
-	public boolean generico;
+	@NotBlank(message = "O atributo generico é obrigatorio!")
+	public String generico;
 	@NotBlank(message = "O atributo fornecedor é obrigatorio!")
 	@Size(min = 5, max = 100, message = "O atributo fornecedor deve conter no minimo 05 caracteres")
 	public String fornecedor;
@@ -81,11 +81,11 @@ public class Produtos {
 		this.dataValidade = dataValidade;
 	}
 
-	public boolean isGenerico() {
+	public String isGenerico() {
 		return generico;
 	}
 
-	public void setGenerico(boolean generico) {
+	public void setGenerico(String generico) {
 		this.generico = generico;
 	}
 

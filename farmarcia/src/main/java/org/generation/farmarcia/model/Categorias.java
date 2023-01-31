@@ -44,7 +44,7 @@ public class Categorias {
 	@JsonIgnoreProperties ("categorias")
 	private Produtos produtos;*/
 	
-	@OneToMany(mappedBy = "categorias", cascade = CascadeType.REMOVE)
+	@OneToMany(mappedBy = "categorias", cascade = CascadeType.ALL)
 	@JsonIgnoreProperties ("categorias")
 	private List<Produtos> produtos;
 
